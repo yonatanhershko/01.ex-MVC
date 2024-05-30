@@ -39,3 +39,16 @@ function onRemoveBook(bookId) {
 }
 
 
+function onUpdateBook() {
+    var newPrice = prompt('Whats the new price ?')
+    if (newPrice !== null) {
+        updatePrice(newPrice)
+    }
+
+
+}
+
+function onAddBook(){
+    
+}
+

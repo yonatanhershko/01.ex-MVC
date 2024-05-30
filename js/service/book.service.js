@@ -1,10 +1,17 @@
 'use strict'
 
 
-function onUpdateBook(){
-console.log('hh');
+
+function AddBook(){
+    
 }
 
+
+
+function updatePrice(newPrice){
+    var bookPrice = gBooks.find(book => book.price === newPrice)
+
+}
 
 function removeBook(bookId) {
     // console.log(gBooks[0].id);
