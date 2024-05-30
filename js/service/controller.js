@@ -25,19 +25,19 @@ function render() {
 }
 
 
-function onRemoveBook(bookId) {
+function onRemoveBook(id) {
     // Model
-    removeBook(+bookId)
+    removeBook(id)
 
     // DOM
     render()
 }
 
 
-function onUpdateBook(bookId) {
+function onUpdateBook(id) {
     var newPrice = +prompt('Whats the new price ?')
     if (newPrice !== null) {
-        updatePrice(+bookId, newPrice)
+        updatePrice(id, newPrice)
     }
     render()
 }
@@ -46,17 +46,17 @@ function onUpdateBook(bookId) {
 
 function onAddBook() {
     var newName = prompt('New book name?')
-    var newPrice = +prompt('New book price?')
-    AddBook(newName, newPrice)
+    var currPrice = getRandomInt(1, 222)
+    AddBook(newName,currPrice)
     render()
 }
 
-function onBookDetails(bookId) {
+function onBookDetails(id) {
     const elModal = document.querySelector('.modal')
     const elData = elModal.querySelector('pre')
 
     ///Model
-    var bookDetails = BookDetails(+bookId)
+    var bookDetails = BookDetails(id)
     console.log('bookDetails: ', bookDetails)
 
 
