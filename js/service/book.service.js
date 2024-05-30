@@ -2,14 +2,13 @@
 
 var gNextId = 100
 var gBooks 
-_createBooks()
 
 // = [
 //     { id: gNextId++, title: 'The adventures of Lori Ipsi', price: 120, imgUrl: 'img/Img1.JPG' },
 //     { id: gNextId++, title: 'The adventures ', price: 150, imgUrl: 'img/Img2.JPG' },
 //     { id: gNextId++, title: 'The', price: 180, imgUrl: 'img/Img3.JPG' }
 // ]
-
+_createBooks()
 
 function getBooks(){
 return gBooks
@@ -39,7 +38,7 @@ function AddBook(newName, newPrice) {
 function updatePrice(bookId,newPrice) {
     var currBook = gBooks.find(book => book.id === bookId)
     // console.log(currBook)
-    currBook.price  = newPrice
+    currBook.price  = newPrice //dif newprice!
     _saveBooks()
 }
 
