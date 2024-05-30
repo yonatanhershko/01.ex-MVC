@@ -30,3 +30,12 @@ body{
     color: rgb(255, 249, 249);
     font-weight: bold;
 }
+
+.fillter{
+    text-align: center;
+    line-height: 50px;
+}
+
+.search-input{
+    text-align: center;
+}

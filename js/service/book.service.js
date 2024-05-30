@@ -24,7 +24,7 @@ function BookDetails(bookId){
 
 
 function AddBook(newName,price) {
-    var book = _createBook(newName,price)
+    var book = _createBook(newName.price)
     gBooks.unshift(book)// start
 
     // gBooks.push(book) //end

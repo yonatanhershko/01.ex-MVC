@@ -25,6 +25,11 @@ function render() {
 }
 
 
+function onFilterBy(){
+    console.log('hey');
+}
+
+
 function onRemoveBook(id) {
     // Model
     removeBook(id)
