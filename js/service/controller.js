@@ -1,11 +1,5 @@
 'use strict'
 
-var gNextId = 100
-var gBooks = [
-    { id: gNextId++, title: 'The adventures of Lori Ipsi', price: 120, imgUrl: 'lori-ipsi.jpg' },
-    { id: gNextId++, title: 'The adventures ', price: 150, imgUrl: 'lori-ipsi.jpg' },
-    { id: gNextId++, title: 'The', price: 180, imgUrl: 'lori-ipsi.jpg' }
-]
 
 
 
@@ -15,14 +9,15 @@ function onInit() {
 
 
 function render() {
+    var books = getBooks()
     const elBookList = document.querySelector('tbody')
 
-    const strHtmls = gBooks.map(book => `
+    const strHtmls = books.map(book => `
     <tr>
             <td>${book.title}</td>
             <td>${book.price}</td>
             <td><button >Read</button>
-             <button onclick ="onUpdateBook('${book.price}')" >Update </button> 
+             <button onclick ="onUpdateBook('${book.id}')" >Update </button> 
              <button onclick ="onRemoveBook('${book.id}')">Delete</button></td>
           </tr>`)
 
@@ -39,16 +34,20 @@ function onRemoveBook(bookId) {
 }
 
 
-function onUpdateBook() {
-    var newPrice = prompt('Whats the new price ?')
+function onUpdateBook(bookId) {
+    var newPrice = +prompt('Whats the new price ?')
     if (newPrice !== null) {
-        updatePrice(newPrice)
+        updatePrice(+bookId, newPrice)
     }
 
-
+    render()
 }
 
-function onAddBook(){
-    
-}
 
+
+function onAddBook() {
+    var newName = prompt('New book name?')
+    var newPrice = +prompt('New book price?')
+    AddBook(newName, newPrice)
+    render()
+}

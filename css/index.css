@@ -1,0 +1,24 @@
+*{
+box-sizing: border-box;
+    
+}
+
+body{
+    background-color: #252525;
+    margin: auto;
+    color: aliceblue;
+}
+
+.bts{
+   text-align: center;
+   transition: 1s;
+}
+
+.table{
+    margin: auto;
+}
+
+.bts:hover{
+    cursor: pointer;
+    color: blueviolet;
+}

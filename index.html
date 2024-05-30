@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/index.css">
     <title>My Book Shop</title>
 </head>
+
 <body onload="onInit()">
-    
+    <div>
+        <h2 class="bts" onclick="onAddBook()"> Add New Book📖</h2>
+    </div>
     <table class="table">
         <thead>
-          <tr>
-            <th>Title</th>
-            <th>Price</th>
-            <th>Action</th>
-          </tr>
+            <tr>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
         </thead>
         <tbody>
-       
+
         </tbody>
-      </table>
-      <script src="./js/service/book.util.js"></script>
+    </table>
+    <script src="./js/service/book.util.js"></script>
     <script src="./js/service/controller.js"></script>
     <script src="./js/service/book.service.js"></script>
 </body>
+
 </html>
