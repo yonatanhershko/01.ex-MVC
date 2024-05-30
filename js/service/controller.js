@@ -11,12 +11,12 @@ function onInit() {
 function render() {
     var books = getBooks()
     const elBookList = document.querySelector('tbody')
-   
+
     const strHtmls = books.map(book => `
     <tr>
             <td>${book.title}</td>
-            <td>${book.price}</td>
-            <td><buttononclick ="onBookDetails('${book.id}')" >Read</button>
+            <td>$${book.price}</td>
+            <td><button onclick ="onBookDetails('${book.id}')" >Read</button>
              <button onclick ="onUpdateBook('${book.id}')" >Update </button> 
              <button onclick ="onRemoveBook('${book.id}')">Delete</button></td>
           </tr>`)
@@ -51,15 +51,17 @@ function onAddBook() {
     render()
 }
 
-function onBookDetails(bookId){
+function onBookDetails(bookId) {
     const elModal = document.querySelector('.modal')
     const elData = elModal.querySelector('pre')
 
-///Model
+    ///Model
     var bookDetails = BookDetails(+bookId)
+    console.log('bookDetails: ', bookDetails)
 
 
     // DOM
     elData.innerText = JSON.stringify(bookDetails, null, 2)
+    elModal.style.backgroundImage = `url(${bookDetails.imgUrl})`
     elModal.showModal()
 }

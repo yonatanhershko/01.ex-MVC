@@ -2,9 +2,9 @@
 
 var gNextId = 100
 var gBooks = [
-    { id: gNextId++, title: 'The adventures of Lori Ipsi', price: 120, imgUrl: 'lori-ipsi.jpg' },
-    { id: gNextId++, title: 'The adventures ', price: 150, imgUrl: 'lori-ipsi.jpg' },
-    { id: gNextId++, title: 'The', price: 180, imgUrl: 'lori-ipsi.jpg' }
+    { id: gNextId++, title: 'The adventures of Lori Ipsi', price: 120, imgUrl: 'img/Img1.JPG' },
+    { id: gNextId++, title: 'The adventures ', price: 150, imgUrl: 'img/Img2.JPG' },
+    { id: gNextId++, title: 'The', price: 180, imgUrl: 'img/Img3.JPG' }
 ]
 
 
@@ -25,7 +25,7 @@ function AddBook(newName, newPrice) {
     var book = { id: gNextId++,
         title: newName,
         price: newPrice,
-        imgUrl: 'lori-ipsi.jpg'
+        imgUrl: 'img/Img4.JPG'
     }
     gBooks.push(book)
 }
