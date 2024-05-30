@@ -14,6 +14,13 @@ return gBooks
 }
 
 
+function BookDetails(bookId){
+    var currBook = gBooks.find(book => book.id === bookId)
+    return currBook
+}
+
+
+
 function AddBook(newName, newPrice) {
     var book = { id: gNextId++,
         title: newName,

@@ -22,3 +22,8 @@ body{
     cursor: pointer;
     color: blueviolet;
 }
+
+.modal {
+    background-color: lightblue;
+    margin: left;
+}
