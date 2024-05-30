@@ -9,3 +9,4 @@ function loadFromStorage(key) {
     const valueStr = localStorage.getItem(key)
     return JSON.parse(valueStr)
 }
+
