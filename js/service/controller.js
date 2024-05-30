@@ -13,6 +13,7 @@ function onInit() {
     render()
 }
 
+
 function render() {
     const elBookList = document.querySelector('tbody')
 
@@ -21,15 +22,20 @@ function render() {
             <td>${book.title}</td>
             <td>${book.price}</td>
             <td><button >Read</button>
-             <button >Update</button> 
+             <button onclick ="onUpdateBook('${book.price}')" >Update </button> 
              <button onclick ="onRemoveBook('${book.id}')">Delete</button></td>
-          </tr>`
-    )
+          </tr>`)
 
     elBookList.innerHTML = strHtmls.join('')
 }
 
 
+function onRemoveBook(bookId) {
+    // Model
+    removeBook(+bookId)
 
+    // DOM
+    render()
+}
 
 
