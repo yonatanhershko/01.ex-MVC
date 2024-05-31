@@ -7,10 +7,11 @@ body {
     background-color: #252525;
     margin: auto;
     color: #ffffff;
+    font-family: 'Roboto', sans-serif;
 }
 
 .bts {
-    text-align: center;
+   text-align: center;
     transition: 1s;
 }
 
@@ -77,4 +78,40 @@ footer {
 footer span:hover {
     transition: 1s;
     color: rgb(163, 102, 203);
+}
+
+
+button {
+    background-color: rgb(178, 105, 228);
+    color:rgb(244, 230, 255);
+    font-weight: bold;
+    width: 60px ;
+    margin-right: 5px;
+    border: none;
+    border-radius: 2px;
+    line-height: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+button:hover{
+    background-color: rgb(208, 173, 232);
+    cursor: pointer;
+}
+
+.del{
+    background-color: rgb(99, 34, 122);
+    color:rgb(244, 230, 255);
+}
+
+.del:hover{
+    background-color: rgb(134, 50, 26);
+    animation: shake 0.5s ease infinite;    cursor: pointer;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-3px); }
+    50% { transform: translateX(3px); }
+    75% { transform: translateX(-3px); }
+    100% { transform: translateX(0); }
 }

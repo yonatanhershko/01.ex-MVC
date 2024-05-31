@@ -17,7 +17,7 @@ function render() {
             <td>$${book.price}</td>
             <td><button onclick ="onBookDetails('${book.id}')" >Read</button>
              <button onclick ="onUpdateBook('${book.id}')" >Update </button> 
-             <button onclick ="onRemoveBook('${book.id}')">Delete</button></td>
+             <button class = "del" onclick ="onRemoveBook('${book.id}')">Delete</button></td>
           </tr>`)
 
     elBookList.innerHTML = strHtmls.join('')
@@ -36,8 +36,8 @@ function renderStats() {
     const countCheapBooks = gBooks.length - countExpBooks - countAvgBooks
 
     elTotalExpBooks.innerHTML = countExpBooks
-        elTotalCheapBooks.innerHTML = countCheapBooks 
-        elTotalAvgBooks.innerHTML = countAvgBooks
+    elTotalCheapBooks.innerHTML = countCheapBooks
+    elTotalAvgBooks.innerHTML = countAvgBooks
 }
 
 
