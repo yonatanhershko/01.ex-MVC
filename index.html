@@ -12,11 +12,9 @@
     <div class="bts-container">
         <h2 class="bts" onclick="onAddBook()"> Add New Book📖</h2>
     </div>
-    <div class="fillter" >
-        <input type="text" class ="search-input" 
-        oninput="onFilterBy(value)"
-         placeholder="Search Here✌️">
-         <button onclick=" onClearSearch()">Clear</button>
+    <div class="fillter">
+        <input type="text" class="search-input" oninput="onFilterBy(value)" placeholder="Search Here✌️">
+        <button onclick=" onClearSearch()">Clear</button>
     </div>
     <table class="table">
         <thead>
@@ -25,12 +23,15 @@
                 <th>Price</th>
                 <th>Action</th>
             </tr>
+
         </thead>
         <tbody>
-
         </tbody>
-    </table>
 
+    </table>
+    <div class="noM-container">
+        <span class="noMatch"></span>
+    </div>
     <div class="success">
         <h2>Success</h2>
     </div>
@@ -38,10 +39,10 @@
     <dialog class="modal">
         <form method="dialog">
             <pre></pre>
-            <button>x</button>
+            <button class="x-bt">x</button>
         </form>
     </dialog>
- 
+
     <footer>
         <p class="name">Yona's BookShop📘 2024</p>
         <p>

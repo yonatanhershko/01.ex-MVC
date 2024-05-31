@@ -40,12 +40,20 @@ function renderStats() {
     elTotalAvgBooks.innerHTML = countAvgBooks
 }
 
-
+var currMatch = document.querySelector('.noMatch')
 
 function onFilterBy(search) {
     // var text = document.querySelector(".search-input").value;
     //  console.log('search :>> ', search)
     getBooks(search)
+    if (gBooks.length == 0) {
+        currMatch.innerHTML = 'No matching books were found😶‍🌫️'
+    } else {
+        currMatch.innerHTML = ''
+    }
+
+
+
     render()
 }
 

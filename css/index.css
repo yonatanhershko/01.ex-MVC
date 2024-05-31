@@ -9,10 +9,12 @@ body {
     color: #ffffff;
     font-family: 'Roboto', sans-serif;
 }
-.bts-container{
+
+.bts-container {
     display: flex;
     justify-content: center;
 }
+
 .bts {
     position: relative;
     display: inline;
@@ -30,13 +32,21 @@ body {
 }
 
 .modal {
+
+    color: #ffffff;
     background-color: lightblue;
+    font-weight: bold;
+    border: none;
+    -webkit-box-shadow: 0px 0px 50px 23px rgba(23, 12, 36, 1);
+    -moz-box-shadow: 0px 0px 50px 23px rgba(23, 12, 36, 1);
+    box-shadow: 0px 0px 50px 23px rgb(10, 9, 11);
+    width: 350px;
     background-size: cover;
     background-repeat: no-repeat;
-    color: #ffffff;
-    font-weight: bold;
 }
-
+.x-bt{
+   
+}
 .fillter {
     text-align: center;
     line-height: 50px;
@@ -87,9 +97,9 @@ footer span:hover {
 
 button {
     background-color: rgb(178, 105, 228);
-    color:rgb(244, 230, 255);
+    color: rgb(244, 230, 255);
     font-weight: bold;
-    width: 60px ;
+    width: 60px;
     margin-right: 5px;
     border: none;
     border-radius: 2px;
@@ -97,25 +107,54 @@ button {
     transition: transform 0.3s ease-in-out;
 }
 
-button:hover{
+button:hover {
     background-color: rgb(208, 173, 232);
     cursor: pointer;
 }
 
-.del{
+.del {
     background-color: rgb(99, 34, 122);
-    color:rgb(244, 230, 255);
+    color: rgb(244, 230, 255);
 }
 
-.del:hover{
+.del:hover {
     background-color: rgb(134, 50, 26);
-    animation: shake 0.5s ease infinite;    cursor: pointer;
+    animation: shake 0.5s ease infinite;
+    cursor: pointer;
 }
 
 @keyframes shake {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-3px); }
-    50% { transform: translateX(3px); }
-    75% { transform: translateX(-3px); }
-    100% { transform: translateX(0); }
+    0% {
+        transform: translateY(0);
+    }
+
+    25% {
+        transform: translateX(-3px);
+    }
+
+    50% {
+        transform: translateX(3px);
+    }
+
+    75% {
+        transform: translateX(-3px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.noM-container {
+    display: flex;
+    justify-content: center;
+}
+
+.noMatch {
+    position: relative;
+    display: inline;
+    font-size: 18px;
+    font-weight: bold;
+    animation: shake 4s ease infinite;
+
 }

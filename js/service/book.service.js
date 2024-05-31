@@ -26,12 +26,16 @@ function AvgBooks() {
     return gBooks.filter(book => book.price <= 200 && book.price >= 80)
 }
 
-
 function BookDetails(bookId) {
     var currBook = gBooks.find(book => book.id === bookId)
     return currBook
 }
 
+function _noMatchFound() {
+    var currMatch = document.querySelector('.noMatch')
+    currMatch.style.display =''
+    console.log('ghjghj');
+}
 
 function addSuccess() {
     var elSuccess = document.querySelector('.success')
@@ -40,7 +44,6 @@ function addSuccess() {
         elSuccess.style.opacity = 0
     }, 2000)
 }
-
 
 function AddBook(newName, price) {
     if (!newName || !price) return alert('No name / no price')
@@ -68,7 +71,6 @@ function removeBook(bookId) {
     _saveBooks()
 }
 
-
 function _createBooks() {
     gBooks = loadFromStorage('books')
     if (gBooks && gBooks.length !== 0) return
@@ -89,6 +91,7 @@ function _createBook(title, price, imgUrl = 'img/Img4.JPG') {
         imgUrl,
     }
 }
+
 
 
 function _saveBooks() {
