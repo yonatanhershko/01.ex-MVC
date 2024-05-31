@@ -30,6 +30,14 @@ function BookDetails(bookId) {
 }
 
 
+function addSuccess() {
+    var elSuccess = document.querySelector('.success')
+    elSuccess.style.opacity = 1
+    setTimeout(() => {
+        elSuccess.style.opacity = 0
+    }, 2000)
+}
+
 
 function AddBook(newName, price) {
     if (!newName || !price) return alert('No name / no price')

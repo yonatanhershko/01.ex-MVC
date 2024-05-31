@@ -6,7 +6,7 @@ box-sizing: border-box;
 body{
     background-color: #252525;
     margin: auto;
-    color: aliceblue;
+    color:  #ffffff;
 }
 
 .bts{
@@ -20,14 +20,14 @@ body{
 
 .bts:hover{
     cursor: pointer;
-    color: blueviolet;
+    color: rgb(163, 102, 203);
 }
 
 .modal {
    background-color: lightblue;
     background-size: cover;
     background-repeat: no-repeat;
-    color: rgb(255, 249, 249);
+    color:  #ffffff;
     font-weight: bold;
 }
 
@@ -36,10 +36,21 @@ body{
     line-height: 50px;
 }
 
-#search-input{
+.search-input{
     text-align: center;
 }
 
-.hidden{
-    display: none;
+.success{
+    opacity: 0;
+transition: 0.5s;
+text-align: center;
+display:flex;
+justify-content: center;
+color: #252525;
+}
+
+.success h2{
+    background-color: rgba(217, 194, 232, 0.9);  
+      padding: 10px 25px;
+    border-radius: 20px;
 }

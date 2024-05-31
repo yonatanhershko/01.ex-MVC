@@ -45,6 +45,7 @@ function onRemoveBook(id) {
 
     // DOM
     render()
+    addSuccess()
 }
 
 
@@ -54,6 +55,7 @@ function onUpdateBook(id) {
         updatePrice(id, newPrice)
     }
     render()
+    addSuccess()
 }
 
 
@@ -63,6 +65,7 @@ function onAddBook() {
     var currPrice = getRandomInt(1, 222)
     AddBook(newName, currPrice)
     render()
+    addSuccess()
 }
 
 function onBookDetails(id) {
