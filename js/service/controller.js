@@ -9,10 +9,10 @@ function onInit() {
 
 
 function render() {
-    var books = getBooks()
+    // var books = getBooks()
     const elBookList = document.querySelector('tbody')
 
-    const strHtmls = books.map(book => `
+    const strHtmls = gBooks.map(book => `
     <tr>
             <td>${book.title}</td>
             <td>$${book.price}</td>
@@ -25,8 +25,11 @@ function render() {
 }
 
 
-function onFilterBy(){
-    console.log('hey');
+function onFilterBy(search) {
+    // var text = document.querySelector(".search-input").value;
+    //  console.log('search :>> ', search)
+    getBooks(search)
+    render()
 }
 
 
@@ -52,7 +55,7 @@ function onUpdateBook(id) {
 function onAddBook() {
     var newName = prompt('New book name?')
     var currPrice = getRandomInt(1, 222)
-    AddBook(newName,currPrice)
+    AddBook(newName, currPrice)
     render()
 }
 
