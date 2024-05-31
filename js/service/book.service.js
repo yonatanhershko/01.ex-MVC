@@ -32,6 +32,7 @@ function BookDetails(bookId) {
 
 
 function AddBook(newName, price) {
+    if (!newName || !price) return alert('No name / no price')
     var book = _createBook(newName, price)
     gBooks.unshift(book)// start
 
