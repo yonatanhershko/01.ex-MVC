@@ -13,7 +13,8 @@
         <h2 class="bts" onclick="onAddBook()"> Add New Book📖</h2>
     </div>
     <div class="fillter">
-        <input type="text" class="search-input" oninput="onFilterBy(value)" placeholder="Search Here✌️">
+        <input type="text" class="search-input" oninput="onFilterBy(value)"
+         placeholder="Search Here✌️">
         <button onclick=" onClearSearch()">Clear</button>
     </div>
     <table class="table">
@@ -23,11 +24,9 @@
                 <th>Price</th>
                 <th>Action</th>
             </tr>
-
         </thead>
         <tbody>
         </tbody>
-
     </table>
     <div class="noM-container">
         <span class="noMatch"></span>
@@ -39,7 +38,7 @@
     <dialog class="modal">
         <form method="dialog">
             <pre></pre>
-            <button class="x-bt">x</button>
+            <button >x</button>
         </form>
     </dialog>
 
@@ -57,7 +56,7 @@
 
     <script src="./js/service/book.util.js"></script>
     <script src="./js/service/storge.service.js"></script>
-    <script src="./js/service/controller.js"></script>
+    <script src="./js/controller.js"></script>
     <script src="./js/service/book.service.js"></script>
 </body>
 

@@ -1,12 +1,12 @@
 * {
     box-sizing: border-box;
-
 }
 
+
 body {
+    color: #ffffff;
     background-color: #252525;
     margin: auto;
-    color: #ffffff;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -27,26 +27,23 @@ body {
 }
 
 .bts:hover {
-    cursor: pointer;
     color: rgb(163, 102, 203);
+    cursor: pointer;
 }
 
 .modal {
-
     color: #ffffff;
     background-color: lightblue;
-    font-weight: bold;
-    border: none;
     -webkit-box-shadow: 0px 0px 50px 23px rgba(23, 12, 36, 1);
     -moz-box-shadow: 0px 0px 50px 23px rgba(23, 12, 36, 1);
     box-shadow: 0px 0px 50px 23px rgb(10, 9, 11);
+    font-weight: bold;
+    border: none;
     width: 350px;
     background-size: cover;
     background-repeat: no-repeat;
 }
-.x-bt{
-   
-}
+
 .fillter {
     text-align: center;
     line-height: 50px;
@@ -57,12 +54,12 @@ body {
 }
 
 .success {
+    color: #252525;
     opacity: 0;
     transition: 0.5s;
     text-align: center;
     display: flex;
     justify-content: center;
-    color: #252525;
 }
 
 .success h2 {
@@ -71,7 +68,6 @@ body {
     border-radius: 20px;
 }
 
-
 footer {
     position: fixed;
     bottom: 0;
@@ -79,21 +75,19 @@ footer {
 }
 
 .hover1:hover {
-    transition: 1s;
     color: rgb(163, 102, 203);
+    transition: 1s;
 }
 
 .name:hover {
-    transition: 1s;
     color: rgb(163, 102, 203);
+    transition: 1s;
 }
-
 
 footer span:hover {
-    transition: 1s;
     color: rgb(163, 102, 203);
+    transition: 1s;
 }
-
 
 button {
     background-color: rgb(178, 105, 228);
