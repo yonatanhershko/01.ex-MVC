@@ -2,11 +2,9 @@
 
 
 
-
 function onInit() {
     render()
 }
-
 
 function render() {
     const elBookList = document.querySelector('tbody')
@@ -40,23 +38,18 @@ function renderStats() {
     elTotalAvgBooks.innerHTML = countAvgBooks
 }
 
-var currMatch = document.querySelector('.noMatch')
-
 function onFilterBy(search) {
     // var text = document.querySelector(".search-input").value;
     //  console.log('search :>> ', search)
     getBooks(search)
+    var currMatch = document.querySelector('.noMatch')
     if (gBooks.length == 0) {
         currMatch.innerHTML = 'No matching books were found😶‍🌫️'
     } else {
         currMatch.innerHTML = ''
     }
-
-
-
     render()
 }
-
 
 function onClearSearch() {
     var elInput = document.querySelector(".search-input")
@@ -74,7 +67,6 @@ function onRemoveBook(id) {
     addSuccess()
 }
 
-
 function onUpdateBook(id) {
     var newPrice = +prompt('Whats the new price ?')
     if (newPrice !== null) {
@@ -83,8 +75,6 @@ function onUpdateBook(id) {
     render()
     addSuccess()
 }
-
-
 
 function onAddBook() {
     var newName = prompt('New book name?')
@@ -101,7 +91,6 @@ function onBookDetails(id) {
     ///Model
     var bookDetails = BookDetails(id)
     console.log('bookDetails: ', bookDetails)
-
 
     // DOM
     elData.innerText = JSON.stringify(bookDetails, null, 2)

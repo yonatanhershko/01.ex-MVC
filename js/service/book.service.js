@@ -31,11 +31,6 @@ function BookDetails(bookId) {
     return currBook
 }
 
-function _noMatchFound() {
-    var currMatch = document.querySelector('.noMatch')
-    currMatch.style.display =''
-    console.log('ghjghj');
-}
 
 function addSuccess() {
     var elSuccess = document.querySelector('.success')
@@ -91,8 +86,6 @@ function _createBook(title, price, imgUrl = 'img/Img4.JPG') {
         imgUrl,
     }
 }
-
-
 
 function _saveBooks() {
     saveToStorage('books', gBooks)
