@@ -1,56 +1,80 @@
-*{
-box-sizing: border-box;
-    
+* {
+    box-sizing: border-box;
+
 }
 
-body{
+body {
     background-color: #252525;
     margin: auto;
-    color:  #ffffff;
+    color: #ffffff;
 }
 
-.bts{
-   text-align: center;
-   transition: 1s;
+.bts {
+    text-align: center;
+    transition: 1s;
 }
 
-.table{
+.table {
     margin: auto;
 }
 
-.bts:hover{
+.bts:hover {
     cursor: pointer;
     color: rgb(163, 102, 203);
 }
 
 .modal {
-   background-color: lightblue;
+    background-color: lightblue;
     background-size: cover;
     background-repeat: no-repeat;
-    color:  #ffffff;
+    color: #ffffff;
     font-weight: bold;
 }
 
-.fillter{
+.fillter {
     text-align: center;
     line-height: 50px;
 }
 
-.search-input{
+.search-input {
     text-align: center;
 }
 
-.success{
+.success {
     opacity: 0;
-transition: 0.5s;
-text-align: center;
-display:flex;
-justify-content: center;
-color: #252525;
+    transition: 0.5s;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    color: #252525;
 }
 
-.success h2{
-    background-color: rgba(217, 194, 232, 0.9);  
-      padding: 10px 25px;
+.success h2 {
+    background-color: rgba(217, 194, 232, 0.9);
+    padding: 10px 25px;
     border-radius: 20px;
+}
+
+
+footer {
+    position: fixed;
+    bottom: 0;
+    margin-left: 20px;
+
+}
+
+.hover1:hover {
+    transition: 1s;
+    color: rgb(163, 102, 203);
+}
+
+.name:hover {
+    transition: 1s;
+    color: rgb(163, 102, 203);
+}
+
+
+footer span:hover {
+    transition: 1s;
+    color: rgb(163, 102, 203);
 }

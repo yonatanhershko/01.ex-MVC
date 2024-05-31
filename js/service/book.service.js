@@ -1,14 +1,9 @@
 'use strict'
 
-var gNextId = 100
+
 var gBooks
 var gFilterBy
 
-// = [
-//     { id: gNextId++, title: 'The adventures of Lori Ipsi', price: 120, imgUrl: 'img/Img1.JPG' },
-//     { id: gNextId++, title: 'The adventures ', price: 150, imgUrl: 'img/Img2.JPG' },
-//     { id: gNextId++, title: 'The', price: 180, imgUrl: 'img/Img3.JPG' }
-// ]
 _createBooks()
 
 function getBooks(search) {
@@ -21,6 +16,14 @@ function getBooks(search) {
     )
     gBooks = newBookSearch
     return gBooks
+}
+
+function expensiveBooks() {
+    return gBooks.filter(book => book.price >= 200)
+}
+
+function AvgBooks() {
+    return gBooks.filter(book => book.price <= 200 && book.price >= 80)
 }
 
 

@@ -21,7 +21,25 @@ function render() {
           </tr>`)
 
     elBookList.innerHTML = strHtmls.join('')
+    renderStats()
 }
+
+function renderStats() {
+    const elFooter = document.querySelector('footer')
+
+    const elTotalExpBooks = elFooter.querySelector('.expensive')
+    const elTotalAvgBooks = elFooter.querySelector('.averge')
+    const elTotalCheapBooks = elFooter.querySelector('.cheap')
+
+    const countExpBooks = expensiveBooks().length
+    const countAvgBooks = AvgBooks().length
+    const countCheapBooks = gBooks.length - countExpBooks - countAvgBooks
+
+    elTotalExpBooks.innerHTML = countExpBooks
+        elTotalCheapBooks.innerHTML = countCheapBooks 
+        elTotalAvgBooks.innerHTML = countAvgBooks
+}
+
 
 
 function onFilterBy(search) {
@@ -34,7 +52,7 @@ function onFilterBy(search) {
 
 function onClearSearch() {
     var elInput = document.querySelector(".search-input")
-    elInput.value =''
+    elInput.value = ''
     getBooks(elInput.value)
     render()
 }
