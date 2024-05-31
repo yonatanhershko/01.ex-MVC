@@ -9,9 +9,14 @@ body {
     color: #ffffff;
     font-family: 'Roboto', sans-serif;
 }
-
+.bts-container{
+    display: flex;
+    justify-content: center;
+}
 .bts {
-   text-align: center;
+    position: relative;
+    display: inline;
+
     transition: 1s;
 }
 
@@ -61,7 +66,6 @@ footer {
     position: fixed;
     bottom: 0;
     margin-left: 20px;
-
 }
 
 .hover1:hover {
