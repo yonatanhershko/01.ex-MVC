@@ -16,6 +16,7 @@ function getBooks(search) {
     gFilterBy = search.toLowerCase()
     // console.log( gFilterBy);
     var newBookSearch = gBooks.filter(book =>
+        // book.title.substring(0, gFilterBy.length).toLowerCase().includes(gFilterBy )
         book.title.substring(0, gFilterBy.length).toLowerCase() === gFilterBy
     )
     gBooks = newBookSearch

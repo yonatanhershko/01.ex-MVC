@@ -9,7 +9,6 @@ function onInit() {
 
 
 function render() {
-    // var books = getBooks()
     const elBookList = document.querySelector('tbody')
 
     const strHtmls = gBooks.map(book => `
@@ -32,6 +31,13 @@ function onFilterBy(search) {
     render()
 }
 
+
+function onClearSearch() {
+    var elInput = document.querySelector(".search-input")
+    elInput.value =''
+    getBooks(elInput.value)
+    render()
+}
 
 function onRemoveBook(id) {
     // Model
