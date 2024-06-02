@@ -8,8 +8,14 @@ function onInit() {
 
 function render() {
     const elBookList = document.querySelector('tbody')
-
-    const strHtmls = gBooks.map(book => `
+    var renderBooks = getBooksForRender()
+    var elNoMatch = document.querySelector('.noMatch')
+    if (gBooks.length == 0) {
+        elNoMatch.innerHTML = 'No Matching Books Were Found😶‍🌫️'
+    } else {
+        elNoMatch.innerHTML = ''
+    }
+    const strHtmls = renderBooks.map(book => `
     <tr>
             <td>${book.title}</td>
             <td>$${book.price}</td>
@@ -42,12 +48,7 @@ function onFilterBy(search) {
     // var text = document.querySelector(".search-input").value;
     //  console.log('search :>> ', search)
     getBooks(search)
-    var currMatch = document.querySelector('.noMatch')
-    if (gBooks.length == 0) {
-        currMatch.innerHTML = 'No matching books were found😶‍🌫️'
-    } else {
-        currMatch.innerHTML = ''
-    }
+   
     render()
 }
 

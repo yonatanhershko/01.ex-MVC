@@ -6,6 +6,10 @@ var gFilterBy
 
 _createBooks()
 
+function getBooksForRender() {
+    return gBooks
+}
+
 function getBooks(search) {
     if (!search || search === undefined) _createBooks()
     gFilterBy = search.toLowerCase()
@@ -31,13 +35,12 @@ function BookDetails(bookId,title) {
     return currBook
 }
 
-
 function addSuccess() {
     var elSuccess = document.querySelector('.success')
     elSuccess.style.opacity = 1
     setTimeout(() => {
         elSuccess.style.opacity = 0
-    }, 2000)
+    }, 1000)
 }
 
 function AddBook(newName, price) {
