@@ -8,8 +8,8 @@ function onInit() {
 
 function render() {
     const elBookList = document.querySelector('tbody')
-
-    const strHtmls = gBooks.map(book => `
+    var renderBooks = getBooksForRender()
+    const strHtmls = renderBooks.map(book => `
     <tr>
             <td>${book.title}</td>
             <td>$${book.price}</td>
