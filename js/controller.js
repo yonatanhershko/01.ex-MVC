@@ -7,6 +7,7 @@ const gQueryOptions = {
 }
 
 function onInit() {
+    readQueryParams()
     render()
 }
 
@@ -48,6 +49,9 @@ function renderStats() {
     elTotalCheapBooks.innerHTML = countCheapBooks
     elTotalAvgBooks.innerHTML = countAvgBooks
 }
+
+
+
 
 
 function onSetFilterBy(filterBy){
@@ -113,4 +117,57 @@ function onBookDetails(id) {
     elData.innerText = JSON.stringify(bookDetails, null, 2)
     elModal.style.backgroundImage = `url(${bookDetails.imgUrl})`
     elModal.showModal()
+}
+
+
+// Query Params
+
+function readQueryParams() {
+    const queryParams = new URLSearchParams(window.location.search)
+
+    gQueryOptions.filterBy = {
+        txt: queryParams.get('title') || '',
+        minRating: +queryParams.get('minRating') || 0
+    }
+
+    renderQueryParams()
+}
+
+function renderQueryParams() {
+    
+    document.querySelector('.search-input').value = gQueryOptions.filterBy.txt
+    document.querySelector('.rating').value = gQueryOptions.filterBy.minRating
+    
+    // const sortKeys = Object.keys(gQueryOptions.sortBy)
+    // const sortBy = sortKeys[0]
+    // const dir = gQueryOptions.sortBy[sortKeys[0]]
+
+    // document.querySelector('.sort-by select').value = sortBy || ''
+    // document.querySelector('.sort-desc').checked = (dir === -1) ? 'true' : 'false'
+
+}
+
+function setQueryParams() {
+    const queryParams = new URLSearchParams()
+
+    queryParams.set('title', gQueryOptions.filterBy.txt)
+    queryParams.set('minRating', gQueryOptions.filterBy.minRating)
+
+    // const sortKeys = Object.keys(gQueryOptions.sortBy)
+    // if(sortKeys.length) {
+    //     queryParams.set('sortBy', sortKeys[0])
+    //     queryParams.set('sortDir', gQueryOptions.sortBy[sortKeys[0]])
+    // }
+
+    // if(gQueryOptions.page) {
+    //     queryParams.set('pageIdx', gQueryOptions.page.idx)
+    //     queryParams.set('pageSize', gQueryOptions.page.size)
+    // }
+
+    const newUrl = 
+        window.location.protocol + "//" + 
+        window.location.host + 
+        window.location.pathname + '?' + queryParams.toString()
+
+    window.history.pushState({ path: newUrl }, '', newUrl)
 }

@@ -25,6 +25,17 @@
                         <option value="4">⭐⭐⭐⭐</option>
                         <option value="5">⭐⭐⭐⭐⭐</option>
                     </select>
+                    <div class="sort-by">
+                        <select onchange="onSetSortBy()">
+                            <option value="select">Select Sorting</option>
+                            <option value="title">By Title</option>
+                            <option value="price">By Price</option>
+                        </select>
+                        <label>
+                            <input class="sort-desc" type="checkbox" oninput="onSetSortBy()" />
+                            <span>☝️👇</span>
+                        </label>
+                    </div>
             </div>
             <div class="fillter">
                 <input type="text" class="search-input" oninput="onSetFilterBy({ txt: this.value })" placeholder="Search Here✌️">
