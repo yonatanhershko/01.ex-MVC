@@ -3,23 +3,30 @@
 
 var gBooks
 var gFilterBy
+// var gRateFilterBy = gBooks.rating
+
 
 _createBooks()
 
-function getBooksForRender() {
-    return gBooks
+function getBooks(options = {}) {
+    const filterBy = options.filterBy
+    const sortBy = options.sortBy
+    const page = options.page
+    var books = gBooks
+
+    //Filter
+    books = _getFiltertBooks(filterBy)
+    return books
 }
 
-function getBooks(search) {
-    if (!search || search === undefined) _createBooks()
-    gFilterBy = search.toLowerCase()
-    // console.log( gFilterBy);
-    var newBookSearch = gBooks.filter(book =>
-        // book.title.substring(0, gFilterBy.length).toLowerCase().includes(gFilterBy )
-        book.title.substring(0, gFilterBy.length).toLowerCase() === gFilterBy
-    )
-    gBooks = newBookSearch
-    return gBooks
+
+function _getFiltertBooks(filterBy) {
+    var books = gBooks
+    if (filterBy.txt) books = books.filter(book => 
+        book.title.substring(0, filterBy.txt.length).toLowerCase() === filterBy.txt.toLowerCase())
+    if (filterBy.minRating) books = books.filter(book => book.rating >= filterBy.minRating)
+
+    return books
 }
 
 function expensiveBooks() {
@@ -30,7 +37,7 @@ function AvgBooks() {
     return gBooks.filter(book => book.price <= 200 && book.price >= 80)
 }
 
-function BookDetails(bookId,title) {
+function BookDetails(bookId, title) {
     var currBook = gBooks.find(book => book.id === bookId)
     return currBook
 }

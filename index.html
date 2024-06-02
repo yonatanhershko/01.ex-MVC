@@ -12,11 +12,27 @@
     <div class="bts-container">
         <h2 class="bts" onclick="onAddBook()"> Add New Book📖</h2>
     </div>
-    <div class="fillter">
-        <input type="text" class="search-input" oninput="onFilterBy(value)"
-         placeholder="Search Here✌️">
-        <button onclick=" onClearSearch()">Clear</button>
-    </div>
+    <section class="car-filter">
+        <fieldset>
+            <legend>Filter & Sorting</legend>
+            <div class="filter-by">
+                <label>
+                    <select class="rating" onchange="onSetFilterBy({ minRating: +this.value })">
+                        <option value="0">Choose By Rating</option>
+                        <option value="1">⭐</option>
+                        <option value="2">⭐⭐</option>
+                        <option value="3">⭐⭐⭐</option>
+                        <option value="4">⭐⭐⭐⭐</option>
+                        <option value="5">⭐⭐⭐⭐⭐</option>
+                    </select>
+            </div>
+            <div class="fillter">
+                <input type="text" class="search-input" oninput="onSetFilterBy({ txt: this.value })" placeholder="Search Here✌️">
+                <button onclick=" onClearSearch()">Clear</button>
+            </div>
+        </fieldset>
+    </section>
+
     <table class="table">
         <thead>
             <tr>
@@ -39,7 +55,7 @@
     <dialog class="modal">
         <form method="dialog">
             <pre></pre>
-            <button >x</button>
+            <button>x</button>
         </form>
     </dialog>
 

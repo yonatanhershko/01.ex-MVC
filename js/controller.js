@@ -1,5 +1,10 @@
 'use strict'
 
+const gQueryOptions = {
+    filterBy: { txt: '', minRating: 0 },
+    sortBy: {},
+    page: { idx: 0, size: 3 }
+}
 
 function onInit() {
     render()
@@ -7,12 +12,12 @@ function onInit() {
 
 function render() {
     const elBookList = document.querySelector('tbody')
-    var renderBooks = getBooksForRender()
+    var renderBooks = getBooks(gQueryOptions)
     var elNoMatch = document.querySelector('.noMatch')
     if (gBooks.length == 0) {
         elNoMatch.innerHTML = 'No Matching Books Were Found😶‍🌫️'
     } else {
-        elNoMatch.innerHTML = ''
+        elNoMatch.innerHTML =''
     }
     const strHtmls = renderBooks.map(book => `
     <tr>
@@ -44,13 +49,18 @@ function renderStats() {
     elTotalAvgBooks.innerHTML = countAvgBooks
 }
 
-function onFilterBy(search) {
-    // var text = document.querySelector(".search-input").value;
-    //  console.log('search :>> ', search)
-    getBooks(search)
-   
+
+function onSetFilterBy(filterBy){
+    if(filterBy.txt !== undefined) {
+        gQueryOptions.filterBy.txt = filterBy.txt
+    }
+    if(filterBy.minRating !== undefined) {
+        gQueryOptions.filterBy.minRating = filterBy.minRating
+    }
+    gQueryOptions.page.idx = 0
     render()
 }
+
 
 function onClearSearch() {
     var elInput = document.querySelector(".search-input")
