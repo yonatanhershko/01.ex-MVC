@@ -64,32 +64,29 @@ function onSetFilterBy(filterBy) {
     setQueryParams()
     render()
 }
-onSaveBook()
-function onSaveBook(){
-    const elText = document.querySelector('.title')
 
-    const elPrice = document.querySelector('.price')
-    const elRating = document.querySelector('.rate')
-    
+
+function onAddBook() {
+    const elText = document.querySelector('.input-newTitle')
+    const elPrice = document.querySelector('.input-newPrice')
+
     var newTitle = elText.value
     var newPrice = +elPrice.value
-    var newRating =  elRating.value
-// console.log(newRating,newPrice,newTitle);
-   
-    if(gBookToEdit) {
-        var car = up(gCarToEdit.id, vendor, maxSpeed)
-        gCarToEdit = null
-    } else {
-        var car = addBook(vendor, maxSpeed)
-    }
 
-    resetCarEditModal()
-    renderCars()
+    console.log(newPrice, newTitle)
+
+    addBook(newTitle, newPrice)
+
+    onCloseModal()
+    addSuccess()
+    render()
+
+
 }
 
 
 
-function onSetSortBy(){
+function onSetSortBy() {
 
     const elSortField = document.querySelector('.sort-by select')
     const elSortDir = document.querySelector('.sort-by input')
@@ -99,9 +96,9 @@ function onSetSortBy(){
 
     gQueryOptions.sortBy = {}
 
-    if(sortField === 'title') gQueryOptions.sortBy = { title: sortDir }
-    if(sortField === 'price') gQueryOptions.sortBy = { price: sortDir }
-    if(sortField === 'rating') gQueryOptions.sortBy = { rating: sortDir }
+    if (sortField === 'title') gQueryOptions.sortBy = { title: sortDir }
+    if (sortField === 'price') gQueryOptions.sortBy = { price: sortDir }
+    if (sortField === 'rating') gQueryOptions.sortBy = { rating: sortDir }
 
     gQueryOptions.page.idx = 0
     setQueryParams()
@@ -112,7 +109,7 @@ function onSetSortBy(){
 function onNextPage() {
     const pageCount = getPageCount(gQueryOptions)
 
-    if(gQueryOptions.page.idx === pageCount - 1) {
+    if (gQueryOptions.page.idx === pageCount - 1) {
         gQueryOptions.page.idx = 0
     } else {
         gQueryOptions.page.idx++
@@ -173,13 +170,14 @@ function onUpdateBook(id) {
     addSuccess()
 }
 
-function onAddBook() {
-    var newName = prompt('New book name?')
-    var currPrice = getRandomInt(1, 222)
-    addBook(newName, currPrice)
-    render()
-    addSuccess()
-}
+// function onAddBook() {
+//     // var newName = prompt('New book name?')
+//     // var currPrice = getRandomInt(1, 222)
+//     // addBook(newName, currPrice)
+//     // render()
+//     // addSuccess()
+
+// }
 
 function onBookDetails(id) {
     const elModal = document.querySelector('.modal')
@@ -231,12 +229,12 @@ function setQueryParams() {
     queryParams.set('minRating', gQueryOptions.filterBy.minRating)
 
     const sortKeys = Object.keys(gQueryOptions.sortBy)
-    if(sortKeys.length) {
+    if (sortKeys.length) {
         queryParams.set('sortBy', sortKeys[0])
         queryParams.set('sortDir', gQueryOptions.sortBy[sortKeys[0]])
     }
 
-    if(gQueryOptions.page) {
+    if (gQueryOptions.page) {
         queryParams.set('pageIdx', gQueryOptions.page.idx)
         queryParams.set('pageSize', gQueryOptions.page.size)
     }

@@ -78,11 +78,9 @@ function addSuccess() {
     }, 1000)
 }
 
-function addBook(newName, price) {
-    if (!newName || !price) return alert('No name / no price')
-    var book = _createBook(newName, price)
-    gBooks.unshift(book)// start
-
+function addBook(newTitle, newPrice) {
+    var newBook = _createBook(newTitle, newPrice)
+    gBooks.unshift(newBook)
     // gBooks.push(book) //end
     _saveBooks()
 }

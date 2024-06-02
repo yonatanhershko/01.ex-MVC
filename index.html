@@ -18,12 +18,11 @@
             <span class="close" onclick="onCloseModal()">X</span>
             <form>
                 <label for="title">Title:</label>
-                <input type="text" class="title" name="title" value="" ><br><br>
+                <input type="text" class="input-newTitle"><br><br>
                 <label for="price">Price:</label>
-                <input type="number" class="price" name="price" value="" ><br><br>
-                <label for="rating">Rating:</label>
-                <input type="range" class="rate" min="0" max="5" value="" step="1" name="rating" max="5"> <br><br>
-                <button onsubmit="onSaveBook()" method="dialog">Add Book</button>
+                <input type="number" class="input-newPrice"><br><br>
+                <br><br>
+                <button class='new-book-submit' type="submit" onclick="onAddBook()">Add New Book</button>
             </form>
         </div>
     </div>
