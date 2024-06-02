@@ -10,12 +10,12 @@
 
 <body onload="onInit()">
     <div class="bts-container">
-        <h2 class="bts" onclick="onOpenModal()"> Add New Book📖</h2>
+        <h2 class="bts" onclick="onOpenAddBookModal()"> Add New Book📖</h2>
     </div>
 
     <div class="edit-new-book" style="display:none;">
         <div class="modal-content">
-            <span class="close" onclick="onCloseModal()">X</span>
+            <span class="close-bt" onclick="onCloseAddBookModal()()">X</span>
             <form>
                 <label for="title">Title:</label>
                 <input type="text" class="input-newTitle"><br><br>
@@ -26,6 +26,20 @@
             </form>
         </div>
     </div>
+
+    <div class="edit-new-update" style="display:none;">
+        <div class="modal-content">
+            <form>
+                <label for="price">Update Price:</label>
+                <input type="number" class="input-updatePrice"><br><br>
+                <br><br>
+                <button class='new-book-submit' type="button" onclick="onUpdateBook()">New Price</button>
+                <!-- Change type to "button" -->
+            </form>
+        </div>
+    </div>
+
+
     <section class="book-filter">
         <fieldset>
             <legend>Filter & Sorting</legend>

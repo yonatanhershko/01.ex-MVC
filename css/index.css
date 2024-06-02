@@ -55,12 +55,55 @@ body {
     text-align: center;
     
 }
-
-.modal-content{
+ 
+.close-bt{
+  
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #d2c6dd;
     display: flex;
     justify-content: center;
-    background-color: #252525;
+    align-items: center;
+    cursor: pointer;
+    font-size: small;
+    position: absolute;
+    top: 10px; 
+    left: 10px;
+}
+
+.edit-new-book{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.edit-new-book button.new-book-submit{
+position: relative;
+bottom: 15%;
+width: 100px;
+}
+
+.input-updatePrice,
+.input-newTitle,
+.input-newPrice {
+    width: 100px; 
+}
+
+.modal-content{
+    position: relative;
+   display: inline-block;
+   padding: 10px 40px 10px 40px;
+    background-color: #684b78;
+    border-radius: 15px;
+   
     z-index: 2;
+}
+
+.edit-new-update{
+    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 div.pages-btn{

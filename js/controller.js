@@ -27,7 +27,7 @@ function render() {
             <td>$${book.price}</td>
             <td>${book.rating}</td>
             <td><button onclick ="onBookDetails('${book.id}')" >Read</button>
-             <button onclick ="onUpdateBook('${book.id}')" >Update </button> 
+             <button onclick ="onOpenUpdateBook('${book.id}')" >Update </button> 
              <button class = "del" onclick ="onRemoveBook('${book.id}')">Delete</button></td>
           </tr>`)
 
@@ -66,24 +66,20 @@ function onSetFilterBy(filterBy) {
 }
 
 
+
 function onAddBook() {
     const elText = document.querySelector('.input-newTitle')
     const elPrice = document.querySelector('.input-newPrice')
 
     var newTitle = elText.value
     var newPrice = +elPrice.value
-
-    console.log(newPrice, newTitle)
-
+    
     addBook(newTitle, newPrice)
 
-    onCloseModal()
+    onCloseAddBookModal()
     addSuccess()
     render()
-
-
 }
-
 
 
 function onSetSortBy() {
@@ -129,12 +125,12 @@ function onPrevPage() {
     renderBooks()
 }
 
-function onOpenModal() {
+function onOpenAddBookModal() {
     var elOpenM = document.querySelector('.edit-new-book')
     elOpenM.style.display = "block"
 }
 
-function onCloseModal() {
+function onCloseAddBookModal() {
     var elCloseM = document.querySelector('.edit-new-book')
     elCloseM.style.display = "none"
 }
@@ -161,23 +157,23 @@ function onRemoveBook(id) {
     addSuccess()
 }
 
+function onOpenUpdateBook() {
+    var elOpenUpdate = document.querySelector('.edit-new-update')
+    elOpenUpdate.style.display = "block"
+}
+
+
 function onUpdateBook(id) {
-    var newPrice = +prompt('Whats the new price ?')
-    if (newPrice !== null) {
-        updatePrice(id, newPrice)
-    }
+    const elUpdatePrice = document.querySelector('.input-updatePrice')
+    var elCloseUpdate = document.querySelector('.edit-new-update')
+    var newUpdatePrice = +elUpdatePrice.value
+    elCloseUpdate.style.display = "none"
+    updatePrice(id, newUpdatePrice)
     render()
     addSuccess()
 }
 
-// function onAddBook() {
-//     // var newName = prompt('New book name?')
-//     // var currPrice = getRandomInt(1, 222)
-//     // addBook(newName, currPrice)
-//     // render()
-//     // addSuccess()
 
-// }
 
 function onBookDetails(id) {
     const elModal = document.querySelector('.modal')
