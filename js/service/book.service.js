@@ -18,25 +18,39 @@ function getBooks(options = {}) {
     books = _getFiltertBooks(filterBy)
 
     // Sort
-    if(sortBy.title) {
+    if (sortBy.title) {
         books = books.toSorted((c1, c2) => c1.title.localeCompare(c2.title) * sortBy.title)
     }
-    if(sortBy.price) {
+    if (sortBy.price) {
         books = books.toSorted((c1, c2) => (c1.price - c2.price) * sortBy.price)
     }
-    if(sortBy.rating) {
+    if (sortBy.rating) {
         books = books.toSorted((c1, c2) => (c1.rating - c2.rating) * sortBy.rating)
     }
 
+    //Pagination
+
+    const idx = page.idx * page.size
+    books = books.slice(idx, idx + page.size)
+
     return books
-
-
 }
+
+
+function getPageCount(options) {
+    const filterBy = options.filterBy
+    const page = options.page
+
+    const bookCount = _getFiltertBooks(filterBy).length
+    // console.log('hh');
+    return Math.ceil(bookCount / page.size)
+}
+
 
 
 function _getFiltertBooks(filterBy) {
     var books = gBooks
-    if (filterBy.txt) books = books.filter(book => 
+    if (filterBy.txt) books = books.filter(book =>
         book.title.substring(0, filterBy.txt.length).toLowerCase() === filterBy.txt.toLowerCase())
     if (filterBy.minRating) books = books.filter(book => book.rating >= filterBy.minRating)
 
@@ -64,7 +78,7 @@ function addSuccess() {
     }, 1000)
 }
 
-function AddBook(newName, price) {
+function addBook(newName, price) {
     if (!newName || !price) return alert('No name / no price')
     var book = _createBook(newName, price)
     gBooks.unshift(book)// start
@@ -111,6 +125,7 @@ function _createBook(title, price, imgUrl = 'img/Img4.JPG') {
         rating: getRandomInt(1, 6)
     }
 }
+
 
 function _saveBooks() {
     saveToStorage('books', gBooks)

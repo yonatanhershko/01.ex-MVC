@@ -49,10 +49,32 @@ body {
     line-height: 50px;
 }
 
-.search-input {
+.pages-btn{
+    display: flex;
+    justify-content: space-around;
     text-align: center;
+    
 }
 
+.modal-content{
+    display: flex;
+    justify-content: center;
+    background-color: #252525;
+    z-index: 2;
+}
+
+div.pages-btn{
+    padding: 15px;
+}
+.book-filter{
+display:flex;
+justify-content: center;
+align-items: center;
+padding: 15px;
+
+
+
+}
 
 .success {
     color: #252525;

@@ -10,9 +10,24 @@
 
 <body onload="onInit()">
     <div class="bts-container">
-        <h2 class="bts" onclick="onAddBook()"> Add New Book📖</h2>
+        <h2 class="bts" onclick="onOpenModal()"> Add New Book📖</h2>
     </div>
-    <section class="car-filter">
+
+    <div class="edit-new-book" style="display:none;">
+        <div class="modal-content">
+            <span class="close" onclick="onCloseModal()">X</span>
+            <form>
+                <label for="title">Title:</label>
+                <input type="text" class="title" name="title" value="" ><br><br>
+                <label for="price">Price:</label>
+                <input type="number" class="price" name="price" value="" ><br><br>
+                <label for="rating">Rating:</label>
+                <input type="range" class="rate" min="0" max="5" value="" step="1" name="rating" max="5"> <br><br>
+                <button onsubmit="onSaveBook()" method="dialog">Add Book</button>
+            </form>
+        </div>
+    </div>
+    <section class="book-filter">
         <fieldset>
             <legend>Filter & Sorting</legend>
             <div class="filter-by">
@@ -36,7 +51,7 @@
                             <label for="descending"></label>
                             <input type="radio" id="descending" value='descending' name="sort-order"
                                 onclick="onSetSortBy()" checked>
-                                <span>☝️👇</span>
+                            <span>☝️👇</span>
                             <label for="ascending"></label>
                             <input type="radio" id="ascending" value='ascending' name="sort-order"
                                 onclick="onSetSortBy()">
@@ -50,6 +65,12 @@
             </div>
         </fieldset>
     </section>
+
+    <div class="pages-btn">
+        <button class="btn previous" onclick="onNextPage()">&lt&lt👈 </button>
+        <button onclick="onNextPage()" class="btn next">👉&gt&gt</button>
+    </div>
+
 
     <table class="table">
         <thead>

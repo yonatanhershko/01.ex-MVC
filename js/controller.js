@@ -1,9 +1,10 @@
 'use strict'
+var gBookToEdit = null
 
 const gQueryOptions = {
     filterBy: { txt: '', minRating: 0 },
     sortBy: {},
-    page: { idx: 0, size: 3 }
+    page: { idx: 0, size: 5 }
 }
 
 function onInit() {
@@ -15,7 +16,7 @@ function render() {
     const elBookList = document.querySelector('tbody')
     var renderBooks = getBooks(gQueryOptions)
     var elNoMatch = document.querySelector('.noMatch')
-    if (gBooks.length == 0) {
+    if (renderBooks.length == 0) {
         elNoMatch.innerHTML = 'No Matching Books Were Found😶‍🌫️'
     } else {
         elNoMatch.innerHTML = ''
@@ -63,6 +64,29 @@ function onSetFilterBy(filterBy) {
     setQueryParams()
     render()
 }
+onSaveBook()
+function onSaveBook(){
+    const elText = document.querySelector('.title')
+
+    const elPrice = document.querySelector('.price')
+    const elRating = document.querySelector('.rate')
+    
+    var newTitle = elText.value
+    var newPrice = +elPrice.value
+    var newRating =  elRating.value
+// console.log(newRating,newPrice,newTitle);
+   
+    if(gBookToEdit) {
+        var car = up(gCarToEdit.id, vendor, maxSpeed)
+        gCarToEdit = null
+    } else {
+        var car = addBook(vendor, maxSpeed)
+    }
+
+    resetCarEditModal()
+    renderCars()
+}
+
 
 
 function onSetSortBy(){
@@ -82,6 +106,40 @@ function onSetSortBy(){
     gQueryOptions.page.idx = 0
     setQueryParams()
     render()
+}
+
+
+function onNextPage() {
+    const pageCount = getPageCount(gQueryOptions)
+
+    if(gQueryOptions.page.idx === pageCount - 1) {
+        gQueryOptions.page.idx = 0
+    } else {
+        gQueryOptions.page.idx++
+    }
+    setQueryParams()
+    render()
+}
+
+function onPrevPage() {
+    const pageCount = getPageCount(gQueryOptions)
+    if (gQueryOptions.page.idx === 0) {
+        gQueryOptions.page.idx = pageCount - 1
+    } else {
+        gQueryOptions.page.idx--
+    }
+    setQueryParams()
+    renderBooks()
+}
+
+function onOpenModal() {
+    var elOpenM = document.querySelector('.edit-new-book')
+    elOpenM.style.display = "block"
+}
+
+function onCloseModal() {
+    var elCloseM = document.querySelector('.edit-new-book')
+    elCloseM.style.display = "none"
 }
 
 function onClearSearch() {
@@ -118,7 +176,7 @@ function onUpdateBook(id) {
 function onAddBook() {
     var newName = prompt('New book name?')
     var currPrice = getRandomInt(1, 222)
-    AddBook(newName, currPrice)
+    addBook(newName, currPrice)
     render()
     addSuccess()
 }
