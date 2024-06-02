@@ -64,8 +64,14 @@ function onSetFilterBy(filterBy){
 
 function onClearSearch() {
     var elInput = document.querySelector(".search-input")
+    const elRatingFilter = document.querySelector('.rating')
+
     elInput.value = ''
-    getBooks(elInput.value)
+    elRatingFilter.selectedIndex = 0
+    gQueryOptions.filterBy.txt = ''
+    gQueryOptions.filterBy.minRating = 0
+
+    getBooks(gQueryOptions)
     render()
 }
 
