@@ -30,15 +30,22 @@
                             <option value="select">Select Sorting</option>
                             <option value="title">By Title</option>
                             <option value="price">By Price</option>
+                            <option value="rating">By Rating</option>
                         </select>
                         <label>
-                            <input class="sort-desc" type="checkbox" oninput="onSetSortBy()" />
-                            <span>☝️👇</span>
+                            <label for="descending"></label>
+                            <input type="radio" id="descending" value='descending' name="sort-order"
+                                onclick="onSetSortBy()" checked>
+                                <span>☝️👇</span>
+                            <label for="ascending"></label>
+                            <input type="radio" id="ascending" value='ascending' name="sort-order"
+                                onclick="onSetSortBy()">
                         </label>
                     </div>
             </div>
             <div class="fillter">
-                <input type="text" class="search-input" oninput="onSetFilterBy({ txt: this.value })" placeholder="Search Here✌️">
+                <input type="text" class="search-input" oninput="onSetFilterBy({ txt: this.value })"
+                    placeholder="Search Here✌️">
                 <button onclick=" onClearSearch()">Clear</button>
             </div>
         </fieldset>

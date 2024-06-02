@@ -18,7 +18,7 @@ function render() {
     if (gBooks.length == 0) {
         elNoMatch.innerHTML = 'No Matching Books Were Found😶‍🌫️'
     } else {
-        elNoMatch.innerHTML =''
+        elNoMatch.innerHTML = ''
     }
     const strHtmls = renderBooks.map(book => `
     <tr>
@@ -52,19 +52,37 @@ function renderStats() {
 
 
 
-
-
-function onSetFilterBy(filterBy){
-    if(filterBy.txt !== undefined) {
+function onSetFilterBy(filterBy) {
+    if (filterBy.txt !== undefined) {
         gQueryOptions.filterBy.txt = filterBy.txt
     }
-    if(filterBy.minRating !== undefined) {
+    if (filterBy.minRating !== undefined) {
         gQueryOptions.filterBy.minRating = filterBy.minRating
     }
     gQueryOptions.page.idx = 0
+    setQueryParams()
     render()
 }
 
+
+function onSetSortBy(){
+
+    const elSortField = document.querySelector('.sort-by select')
+    const elSortDir = document.querySelector('.sort-by input')
+
+    const sortField = elSortField.value
+    const sortDir = elSortDir.checked ? -1 : 1
+
+    gQueryOptions.sortBy = {}
+
+    if(sortField === 'title') gQueryOptions.sortBy = { title: sortDir }
+    if(sortField === 'price') gQueryOptions.sortBy = { price: sortDir }
+    if(sortField === 'rating') gQueryOptions.sortBy = { rating: sortDir }
+
+    gQueryOptions.page.idx = 0
+    setQueryParams()
+    render()
+}
 
 function onClearSearch() {
     var elInput = document.querySelector(".search-input")
@@ -134,10 +152,10 @@ function readQueryParams() {
 }
 
 function renderQueryParams() {
-    
+
     document.querySelector('.search-input').value = gQueryOptions.filterBy.txt
     document.querySelector('.rating').value = gQueryOptions.filterBy.minRating
-    
+
     // const sortKeys = Object.keys(gQueryOptions.sortBy)
     // const sortBy = sortKeys[0]
     // const dir = gQueryOptions.sortBy[sortKeys[0]]
@@ -164,9 +182,9 @@ function setQueryParams() {
     //     queryParams.set('pageSize', gQueryOptions.page.size)
     // }
 
-    const newUrl = 
-        window.location.protocol + "//" + 
-        window.location.host + 
+    const newUrl =
+        window.location.protocol + "//" +
+        window.location.host +
         window.location.pathname + '?' + queryParams.toString()
 
     window.history.pushState({ path: newUrl }, '', newUrl)

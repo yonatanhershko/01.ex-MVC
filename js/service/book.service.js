@@ -16,7 +16,21 @@ function getBooks(options = {}) {
 
     //Filter
     books = _getFiltertBooks(filterBy)
+
+    // Sort
+    if(sortBy.title) {
+        books = books.toSorted((c1, c2) => c1.title.localeCompare(c2.title) * sortBy.title)
+    }
+    if(sortBy.price) {
+        books = books.toSorted((c1, c2) => (c1.price - c2.price) * sortBy.price)
+    }
+    if(sortBy.rating) {
+        books = books.toSorted((c1, c2) => (c1.rating - c2.rating) * sortBy.rating)
+    }
+
     return books
+
+
 }
 
 
