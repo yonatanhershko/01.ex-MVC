@@ -1,8 +1,6 @@
 'use strict'
 
 
-
-
 function onInit() {
     render()
 }
@@ -20,6 +18,7 @@ function render() {
     <tr>
             <td>${book.title}</td>
             <td>$${book.price}</td>
+            <td>${book.rating}</td>
             <td><button onclick ="onBookDetails('${book.id}')" >Read</button>
              <button onclick ="onUpdateBook('${book.id}')" >Update </button> 
              <button class = "del" onclick ="onRemoveBook('${book.id}')">Delete</button></td>

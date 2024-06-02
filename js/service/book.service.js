@@ -76,7 +76,7 @@ function _createBooks() {
     gBooks = [
         _createBook('חוכמת המזרח', 75, 'img/Img1.JPG'),
         _createBook('קולות מן ההרים', 80, 'img/Img2.JPG'),
-        _createBook('מכתבי יוני', 85, 'img/Img3.JPG')
+        _createBook('מכתבי יוני', 85, 'img/Img3.JPG',)
     ]
     _saveBooks()
 }
@@ -87,6 +87,7 @@ function _createBook(title, price, imgUrl = 'img/Img4.JPG') {
         title,
         price,
         imgUrl,
+        rating: getRandomInt(1, 6)
     }
 }
 
