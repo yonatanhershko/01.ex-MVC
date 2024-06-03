@@ -100,6 +100,7 @@ width: 100px;
     z-index: 2;
 }
 
+
 .edit-new-update{
     text-align: center;
     display: flex;
@@ -110,9 +111,12 @@ div.pages-btn{
     padding: 15px;
 }
 .book-filter{
-display:flex;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+/* display:flex;
 justify-content: center;
-align-items: center;
+align-items: center; */
 padding: 15px;
 
 

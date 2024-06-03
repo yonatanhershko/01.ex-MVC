@@ -75,10 +75,10 @@ function onAddBook() {
     var newPrice = +elPrice.value
     
     addBook(newTitle, newPrice)
-
+    
     onCloseAddBookModal()
-    addSuccess()
     render()
+    addSuccess()
 }
 
 
@@ -169,8 +169,8 @@ function onUpdateBook(id) {
     var newUpdatePrice = +elUpdatePrice.value
     elCloseUpdate.style.display = "none"
     updatePrice(id, newUpdatePrice)
-    render()
     addSuccess()
+    render()
 }
 
 

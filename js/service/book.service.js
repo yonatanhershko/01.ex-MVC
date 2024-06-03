@@ -75,7 +75,7 @@ function addSuccess() {
     elSuccess.style.opacity = 1
     setTimeout(() => {
         elSuccess.style.opacity = 0
-    }, 1000)
+    }, 2000)
 }
 
 function addBook(newTitle, newPrice) {
@@ -86,12 +86,13 @@ function addBook(newTitle, newPrice) {
 }
 
 function getBookById(id) {
+   
     return gBooks.find(book => book.id === id)
 }
 
 function updatePrice(id, newUpdatePrice) {
-    const book = gBooks.find(book => book.id === id)
-    book.price = newUpdatePrice //id undfine
+        var currBook = getBookById(id)
+        currBook.price = newUpdatePrice //id undfine
     _saveBooks()
 }
 
