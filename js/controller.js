@@ -6,6 +6,7 @@ const gQueryOptions = {
     sortBy: {},
     page: { idx: 0, size: 5 }
 }
+var gSelectedBookId = ""
 
 function onInit() {
     readQueryParams()
@@ -25,9 +26,9 @@ function render() {
     <tr>
             <td>${book.title}</td>
             <td>$${book.price}</td>
-            <td>${book.rating}</td>
+            <td>${"⭐".repeat(book.rating) || 0}</td>
             <td><button onclick ="onBookDetails('${book.id}')" >Read</button>
-             <button onclick ="onOpenUpdateBook('${book.id}')" >Update </button> 
+             <button onclick ="onOpenUpdateModal('${book.id}')" >Update </button> 
              <button class = "del" onclick ="onRemoveBook('${book.id}')">Delete</button></td>
           </tr>`)
 
@@ -157,18 +158,26 @@ function onRemoveBook(id) {
     addSuccess()
 }
 
-function onOpenUpdateBook() {
+function onOpenUpdateModal() {
     var elOpenUpdate = document.querySelector('.edit-new-update')
     elOpenUpdate.style.display = "block"
 }
 
 
 function onUpdateBook(id) {
+    
     const elUpdatePrice = document.querySelector('.input-updatePrice')
     var elCloseUpdate = document.querySelector('.edit-new-update')
-    var newUpdatePrice = +elUpdatePrice.value
+    console.log(id,'h');
+
+    if (id) {
+        gSelectedBookId = bookId
+        var newUpdatePrice = +elUpdatePrice.value
+        updatePrice(id, newUpdatePrice)
+    }
     elCloseUpdate.style.display = "none"
-    updatePrice(id, newUpdatePrice)
+    gSelectedBookId = ""
+
     addSuccess()
     render()
 }
@@ -234,6 +243,11 @@ function setQueryParams() {
         queryParams.set('pageIdx', gQueryOptions.page.idx)
         queryParams.set('pageSize', gQueryOptions.page.size)
     }
+
+    if (gSelectedBookId) {
+        queryParams.set("bookId", gSelectedBookId)
+      }
+    
 
     const newUrl =
         window.location.protocol + "//" +
