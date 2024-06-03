@@ -88,13 +88,12 @@ function addBook(newTitle, newPrice) {
 function getBookById(id) {
     return gBooks.find(book => book.id === id)
 }
-
-function updatePrice(id, newUpdatePrice) {
-    console.log(id);
-        var currBook = getBookById(id)
-        currBook.price = newUpdatePrice //id undfine
+function updatePrice(id, price) {
+    var book = getBookById(id)
+    book.price = price
     _saveBooks()
 }
+
 
 function removeBook(bookId) {
     // console.log(gBooks[0].id);

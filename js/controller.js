@@ -1,12 +1,10 @@
 'use strict'
-var gBookToEdit = null
 
 const gQueryOptions = {
     filterBy: { txt: '', minRating: 0 },
     sortBy: {},
     page: { idx: 0, size: 5 }
 }
-var gSelectedBookId = ""
 
 function onInit() {
     readQueryParams()
@@ -28,7 +26,7 @@ function render() {
             <td>$${book.price}</td>
             <td>${"⭐".repeat(book.rating) || 0}</td>
             <td><button onclick ="onBookDetails('${book.id}')" >Read</button>
-             <button onclick ="onOpenUpdateModal('${book.id}')" >Update </button> 
+             <button onclick ="onUpdateBook('${book.id}')" >Update </button> 
              <button class = "del" onclick ="onRemoveBook('${book.id}')">Delete</button></td>
           </tr>`)
 
@@ -52,8 +50,6 @@ function renderStats() {
     elTotalAvgBooks.innerHTML = countAvgBooks
 }
 
-
-
 function onSetFilterBy(filterBy) {
     if (filterBy.txt !== undefined) {
         gQueryOptions.filterBy.txt = filterBy.txt
@@ -65,8 +61,6 @@ function onSetFilterBy(filterBy) {
     setQueryParams()
     render()
 }
-
-
 
 function onAddBook() {
     const elText = document.querySelector('.input-newTitle')
@@ -81,7 +75,6 @@ function onAddBook() {
     render()
     addSuccess()
 }
-
 
 function onSetSortBy() {
 
@@ -101,7 +94,6 @@ function onSetSortBy() {
     setQueryParams()
     render()
 }
-
 
 function onNextPage() {
     const pageCount = getPageCount(gQueryOptions)
@@ -158,28 +150,13 @@ function onRemoveBook(id) {
     addSuccess()
 }
 
-function onOpenUpdateModal() {
-    var elOpenUpdate = document.querySelector('.edit-new-update')
-    elOpenUpdate.style.display = "block"
-}
-
-
 function onUpdateBook(id) {
-    
-    const elUpdatePrice = document.querySelector('.input-updatePrice')
-    var elCloseUpdate = document.querySelector('.edit-new-update')
-    console.log(id,'h');
-
-    if (id) {
-        gSelectedBookId = bookId
-        var newUpdatePrice = +elUpdatePrice.value
-        updatePrice(id, newUpdatePrice)
+    var newPrice = +prompt('Whats the new price ?')
+    if (newPrice !== null) {
+        updatePrice(id, newPrice)
     }
-    elCloseUpdate.style.display = "none"
-    gSelectedBookId = ""
-
-    addSuccess()
     render()
+    addSuccess()
 }
 
 
@@ -244,10 +221,10 @@ function setQueryParams() {
         queryParams.set('pageSize', gQueryOptions.page.size)
     }
 
-    if (gSelectedBookId) {
+  /*   if (gSelectedBookId) {
         queryParams.set("bookId", gSelectedBookId)
       }
-    
+     */
 
     const newUrl =
         window.location.protocol + "//" +
@@ -256,3 +233,29 @@ function setQueryParams() {
 
     window.history.pushState({ path: newUrl }, '', newUrl)
 }
+
+
+//// 
+// var gSelectedBookId = ""
+/* function onUpdateBook(id) {
+    const elUpdatePrice = document.querySelector('.input-updatePrice')
+    var elCloseUpdate = document.querySelector('.edit-new-update')
+    
+    if (id) {
+        var newUpdatePrice = +elUpdatePrice.value
+        updatePrice(id, newUpdatePrice)
+    }
+    
+    elCloseUpdate.style.display = "none"
+    addSuccess()
+    render()
+}
+ */
+
+
+
+/* function onOpenUpdateModal() {
+    var elOpenUpdate = document.querySelector('.edit-new-update')
+    elOpenUpdate.style.display = "block"
+}
+ */
