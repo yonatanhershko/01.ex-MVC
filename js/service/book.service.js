@@ -89,6 +89,7 @@ function getBookById(id) {
     return gBooks.find(book => book.id === id)
 }
 function updatePrice(id, price) {
+    if (price === 0) return 
     var book = getBookById(id)
     book.price = price
     _saveBooks()
