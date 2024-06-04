@@ -131,11 +131,15 @@ function onCloseAddBookModal() {
 function onClearSearch() {
     var elInput = document.querySelector(".search-input")
     const elRatingFilter = document.querySelector('.rating')
+    var elSort = document.querySelector(".sort-by select").value = ''
+    
+  
 
     elInput.value = ''
     elRatingFilter.selectedIndex = 0
     gQueryOptions.filterBy.txt = ''
     gQueryOptions.filterBy.minRating = 0
+    gQueryOptions.sortBy =  elSort/// sort back to normal
 
     getBooks(gQueryOptions)
     render()
