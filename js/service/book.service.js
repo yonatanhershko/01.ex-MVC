@@ -78,6 +78,8 @@ function addSuccess() {
     }, 2000)
 }
 
+
+
 function addBook(newTitle, newPrice) {
     var newBook = _createBook(newTitle, newPrice)
     gBooks.unshift(newBook)
@@ -89,6 +91,7 @@ function getBookById(id) {
     return gBooks.find(book => book.id === id)
 }
 function updatePrice(id, price) {
+    if (price === 0) return 
     var book = getBookById(id)
     book.price = price
     _saveBooks()

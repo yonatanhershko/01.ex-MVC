@@ -65,15 +65,15 @@ function onSetFilterBy(filterBy) {
 function onAddBook() {
     const elText = document.querySelector('.input-newTitle')
     const elPrice = document.querySelector('.input-newPrice')
-
+    
     var newTitle = elText.value
     var newPrice = +elPrice.value
-    
-    addBook(newTitle, newPrice)
-    
-    onCloseAddBookModal()
-    render()
-    addSuccess()
+    if (newTitle && newPrice) { 
+        addBook(newTitle, newPrice)
+        onCloseAddBookModal()
+        render()
+        addSuccess()
+    } 
 }
 
 function onSetSortBy() {
