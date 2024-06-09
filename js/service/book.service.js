@@ -2,11 +2,16 @@
 
 
 var gBooks
+var gSelectedBookId
 var gFilterBy
 // var gRateFilterBy = gBooks.rating
 
 
 _createBooks()
+
+function setSelectedBookId(id){
+    gSelectedBookId = id
+}
 
 function getBooks(options = {}) {
     const filterBy = options.filterBy
@@ -126,6 +131,13 @@ function _createBook(title, price, imgUrl = 'img/Img4.JPG') {
         rating: getRandomInt(1, 6)
     }
 }
+
+function findBookById() {
+    const books = loadFromStorage('books')
+    var bookIdx = books.findIndex(book => book.id === gSelectedBookId)
+    return bookIdx
+}
+
 
 
 function _saveBooks() {

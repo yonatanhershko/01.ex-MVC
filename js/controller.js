@@ -62,18 +62,21 @@ function onSetFilterBy(filterBy) {
     render()
 }
 
-function onAddBook() {
+function onAddBook(ev) {
+    ev.preventDefault()
     const elText = document.querySelector('.input-newTitle')
     const elPrice = document.querySelector('.input-newPrice')
-    
+
     var newTitle = elText.value
     var newPrice = +elPrice.value
-    if (newTitle && newPrice) { 
+    if (newTitle && newPrice) {
         addBook(newTitle, newPrice)
         onCloseAddBookModal()
         render()
-        addSuccess()
-    } 
+        
+    }
+    addSuccess()
+
 }
 
 function onSetSortBy() {
@@ -132,14 +135,14 @@ function onClearSearch() {
     var elInput = document.querySelector(".search-input")
     const elRatingFilter = document.querySelector('.rating')
     var elSort = document.querySelector(".sort-by select").value = ''
-    
-  
+
+
 
     elInput.value = ''
     elRatingFilter.selectedIndex = 0
     gQueryOptions.filterBy.txt = ''
     gQueryOptions.filterBy.minRating = 0
-    gQueryOptions.sortBy =  elSort/// sort back to normal
+    gQueryOptions.sortBy = elSort/// sort back to normal
 
     getBooks(gQueryOptions)
     render()
@@ -154,7 +157,9 @@ function onRemoveBook(id) {
     addSuccess()
 }
 
-function onUpdateBook(id) {
+//fun getBookById(id)
+//change 
+/* function onUpdateBook(id) {
     var newPrice = +prompt('Whats the new price ?')
     if (newPrice !== null) {
         updatePrice(id, newPrice)
@@ -162,7 +167,7 @@ function onUpdateBook(id) {
     render()
     addSuccess()
 }
-
+ */
 
 
 function onBookDetails(id) {
@@ -225,10 +230,10 @@ function setQueryParams() {
         queryParams.set('pageSize', gQueryOptions.page.size)
     }
 
-  /*   if (gSelectedBookId) {
-        queryParams.set("bookId", gSelectedBookId)
-      }
-     */
+    /*   if (gSelectedBookId) {
+          queryParams.set("bookId", gSelectedBookId)
+        }
+       */
 
     const newUrl =
         window.location.protocol + "//" +
@@ -239,27 +244,24 @@ function setQueryParams() {
 }
 
 
-//// 
-// var gSelectedBookId = ""
-/* function onUpdateBook(id) {
-    const elUpdatePrice = document.querySelector('.input-updatePrice')
-    var elCloseUpdate = document.querySelector('.edit-new-update')
-    
-    if (id) {
-        var newUpdatePrice = +elUpdatePrice.value
-        updatePrice(id, newUpdatePrice)
-    }
-    
-    elCloseUpdate.style.display = "none"
-    addSuccess()
-    render()
+
+
+function onSubmitBook(ev) {
+    ev.preventDefault()
+    console.log(ev);
+    // elCloseUpdate.style.display = "none"
+    // addSucces
+    // render()
+
 }
- */
 
 
-
-/* function onOpenUpdateModal() {
+function onUpdateBook(bookId) {
+    setSelectedBookId(bookId)
+    const bookToUpdateIdx = findBookById(bookId)
+    var bookToUpdate = gBooks[bookToUpdateIdx]
     var elOpenUpdate = document.querySelector('.edit-new-update')
     elOpenUpdate.style.display = "block"
+    const elUpdatePrice = document.querySelector('.input-updatePrice')
+    elUpdatePrice.value = bookToUpdate.price
 }
- */

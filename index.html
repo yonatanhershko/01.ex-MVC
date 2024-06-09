@@ -22,18 +22,17 @@
                 <label for="price">Price:</label>
                 <input type="number" class="input-newPrice"><br><br>
 
-                <button class='new-book-submit' type="submit" onclick="onAddBook()">Add New Book</button>
+                <button class='new-book-submit' type="submit" onclick="onAddBook(event)">Add New Book</button>
             </form>
         </div>
     </div>
 
     <div class="edit-new-update" style="display:none;">
         <div class="modal-content">
-            <form>
+            <form onsubmit="onSubmitBook(event)">
                 <label for="price">Update Price:</label>
                 <input type="number" class="input-updatePrice"><br><br>
-                <button class='new-book-submit' type="button" onclick="onUpdateBook()">New Price</button>
-
+                <button class='new-book-submit' type="submit">New Price</button>
             </form>
         </div>
     </div>
