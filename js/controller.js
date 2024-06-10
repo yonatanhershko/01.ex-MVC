@@ -248,12 +248,24 @@ function setQueryParams() {
 
 function onSubmitBook(ev) {
     ev.preventDefault()
-    console.log(ev);
-    // elCloseUpdate.style.display = "none"
-    // addSucces
-    // render()
+    const elPrice = document.querySelector('.input-updatePrice')
+    const elCloseUpdate = document.querySelector('.edit-new-update')
+    //how to find it 
+    var newPrice = ev.target[0].value/// search in the form log ev to find
+        //    console.log(newPrice);
+
+//sec way to find it (the easy way)
+    var newPriceTest = +elPrice.value
+    updatePrice(gSelectedBookId,newPriceTest)
+    // console.log(gBooks);
+
+
+    elCloseUpdate.style.display = "none"
+    addSuccess()
+    render()
 
 }
+
 
 
 function onUpdateBook(bookId) {

@@ -52,7 +52,6 @@ function getPageCount(options) {
 }
 
 
-
 function _getFiltertBooks(filterBy) {
     var books = gBooks
     if (filterBy.txt) books = books.filter(book =>
@@ -95,6 +94,7 @@ function addBook(newTitle, newPrice) {
 function getBookById(id) {
     return gBooks.find(book => book.id === id)
 }
+
 function updatePrice(id, price) {
     if (price === 0) return 
     var book = getBookById(id)
@@ -137,6 +137,9 @@ function findBookById() {
     var bookIdx = books.findIndex(book => book.id === gSelectedBookId)
     return bookIdx
 }
+
+
+
 
 
 
